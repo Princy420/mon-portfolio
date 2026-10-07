@@ -1,0 +1,1246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --red: rgb(231, 60, 60);
+    --red-dark: rgb(155, 40, 40);
+
+    --bg: rgb(2, 2, 2);
+    --bg2: #0a0909;
+
+    --light: #f1f1f1;
+    --gray: #b8b8b8;
+
+    --card: #111111;
+
+    --border: rgba(231, 60, 60, 0.25);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    background: var(--bg);
+    color: var(--light);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  padding: 2rem 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(2, 2, 2, 0.95);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  animation: navDown 1s ease forwards;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+  font-size: 2.5rem;
+
+  color: var(--light);
+
+  font-weight: 800;
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+}
+
+.logo span {
+  color: var(--red);
+  font-weight: 400;
+}
+
+.logo:hover {
+  color: var(--red);
+
+  text-shadow:
+    0 0 10px rgba(231, 60, 60, 0.5);
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.navbar a {
+  position: relative;
+
+  color: var(--light);
+
+  font-size: 1.5rem;
+
+  margin-left: 4rem;
+
+  transition: 0.3s ease-in-out;
+}
+
+/* Ligne sous les liens */
+
+.navbar a::before {
+  content: "";
+
+  position: absolute;
+
+  bottom: -8px;
+  left: 50%;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--red);
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease-in-out;
+
+  box-shadow: 0 0 8px var(--red);
+}
+
+/* Hover + page active */
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--red);
+
+  text-shadow:
+    0 0 8px rgba(231, 60, 60, 0.4);
+}
+
+.navbar a:hover::before,
+.navbar a.active::before {
+  width: 100%;
+}
+
+/* =========================================================
+   MENU BURGER
+========================================================= */
+
+#menu-burger {
+  display: none;
+
+  font-size: 3rem;
+
+  color: var(--light);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+#menu-burger:hover {
+  color: var(--red);
+
+  transform: scale(1.1);
+}
+
+/* =========================================================
+   ANIMATION NAVBAR
+========================================================= */
+
+@keyframes navDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   NAVBAR STICKY
+========================================================= */
+
+header.sticky {
+  background: rgba(2, 2, 2, 0.98);
+
+  border-bottom: 1px solid var(--red);
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.5);
+}
+/* =========================================================
+   CONTENU
+========================================================= */
+
+.page-container {
+    width: 100%;
+
+    padding-top: 80px;
+}
+
+
+/* =========================================================
+   SECTION EXPERIENCE
+========================================================= */
+
+.detailed-section {
+    width: 100%;
+
+    min-height: calc(100vh - 80px);
+
+    padding: 8rem 5%;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(231, 60, 60, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+}
+
+
+.container {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TITRE
+========================================================= */
+
+.page-title {
+    text-align: center;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 6rem;
+}
+
+.page-title .accent {
+    color: var(--red);
+}
+
+
+/* =========================================================
+   LISTE DES EXPERIENCES
+========================================================= */
+
+.experience-detailed-list {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   LIGNE VERTICALE
+========================================================= */
+
+.experience-detailed-list::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 2.5rem;
+
+    width: 2px;
+
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--red),
+        var(--red),
+        transparent
+    );
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   CARTE EXPERIENCE
+========================================================= */
+
+.exp-detail-card {
+    position: relative;
+
+    margin-left: 6rem;
+
+    margin-bottom: 3rem;
+
+    padding: 3rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #080808
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Petit point sur la timeline */
+
+.exp-detail-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: -4.7rem;
+
+    top: 3rem;
+
+    width: 15px;
+    height: 15px;
+
+    background: var(--red);
+
+    border: 4px solid var(--bg);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px rgba(231, 60, 60, 0.5);
+}
+
+
+/* Barre rouge en haut */
+
+.exp-detail-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: var(--red);
+
+    transition: width 0.4s ease;
+}
+
+
+/* =========================================================
+   HOVER CARTE
+========================================================= */
+
+.exp-detail-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(231, 60, 60, 0.6);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(231, 60, 60, 0.08);
+}
+
+.exp-detail-card:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HEADER EXPERIENCE
+========================================================= */
+
+.exp-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.exp-badge {
+    display: inline-block;
+
+    padding: 0.7rem 1.3rem;
+
+    color: var(--red);
+
+    background: rgba(231, 60, 60, 0.08);
+
+    border: 1px solid rgba(231, 60, 60, 0.3);
+
+    border-radius: 50px;
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.exp-date {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.7rem;
+
+    color: #aaa;
+
+    font-size: 1.3rem;
+
+    white-space: nowrap;
+}
+
+.exp-date i {
+    color: var(--red);
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   TITRE EXPERIENCE
+========================================================= */
+
+.exp-detail-card h2 {
+    font-size: 2.2rem;
+
+    color: var(--light);
+
+    margin-bottom: 0.7rem;
+}
+
+
+/* =========================================================
+   ENTREPRISE
+========================================================= */
+
+.exp-detail-card h3 {
+    font-size: 1.5rem;
+
+    color: var(--red);
+
+    font-weight: 500;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.exp-summary {
+    font-size: 1.4rem;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   TITRE TACHES
+========================================================= */
+
+.exp-detail-card h4 {
+    font-size: 1.5rem;
+
+    color: var(--light);
+
+    margin-bottom: 1.2rem;
+}
+
+
+/* =========================================================
+   LISTE DES TACHES
+========================================================= */
+
+.exp-detail-card ul {
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.exp-detail-card li {
+    position: relative;
+
+    padding-left: 2.5rem;
+
+    color: #aaa;
+
+    font-size: 1.3rem;
+
+    line-height: 1.7;
+}
+
+
+/* Petit symbole rouge */
+
+.exp-detail-card li::before {
+    content: "▸";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--red);
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   LIENS
+========================================================= */
+
+.exp-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    margin: 1.5rem 0 2rem !important;
+}
+
+.exp-links a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.7rem;
+
+    padding: 0.8rem 1.4rem;
+
+    color: var(--light) !important;
+
+    background: rgba(231, 60, 60, 0.08);
+
+    border: 1px solid rgba(231, 60, 60, 0.3);
+
+    border-radius: 6px;
+
+    font-size: 1.3rem;
+
+    transition: 0.3s ease;
+}
+
+.exp-links a:hover {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white !important;
+
+    transform: translateY(-3px);
+}
+
+.exp-links i {
+    color: var(--red);
+
+    transition: 0.3s ease;
+}
+
+.exp-links a:hover i {
+    color: white;
+}
+
+
+/* =========================================================
+   BADGES SPECIAUX
+========================================================= */
+
+.text-network {
+    color: #5da9ff;
+}
+
+.text-maintenance {
+    color: #ffb347;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    width: 100%;
+
+    padding: 3rem 5%;
+
+    background: #050505;
+
+    border-top: 1px solid rgba(231, 60, 60, 0.15);
+
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.footer-slogan {
+    color: var(--red);
+
+    font-size: 1.6rem;
+
+    font-weight: 500;
+
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    color: #777;
+
+    font-size: 1.3rem;
+}
+
+
+/* =========================================================
+   ANIMATION D'APPARITION
+========================================================= */
+
+.exp-detail-card {
+    animation: experienceAppear 0.7s ease both;
+}
+
+.exp-detail-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.exp-detail-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.exp-detail-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.exp-detail-card:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.exp-detail-card:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+@keyframes experienceAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   Experiences
+========================================================= */
+
+
+/* =========================================================
+   TABLETTES ET PETITS ÉCRANS
+   Jusqu'à 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    html {
+        font-size: 58%;
+    }
+
+    /* Réduction de l'espace entre les éléments de la navbar */
+    .navbar a {
+        margin-left: 2rem;
+    }
+
+    /* Cartes d'expérience légèrement réduites */
+    .exp-detail-card {
+        padding: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   TABLETTES / MOBILES
+   Jusqu'à 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 56%;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
+    header {
+        height: 70px;
+        padding: 1.5rem 5%;
+    }
+
+
+    /* Logo */
+    .logo {
+        font-size: 2rem;
+    }
+
+
+    /* -----------------------------------------------------
+       BOUTON MENU BURGER
+    ----------------------------------------------------- */
+
+    #menu-burger {
+        display: block;
+        font-size: 3.2rem;
+        color: var(--light);
+        cursor: pointer;
+        z-index: 10001;
+        transition: 0.3s ease;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVBAR MOBILE
+    ----------------------------------------------------- */
+
+    .navbar {
+        position: absolute;
+
+        /* Position sous le header */
+        top: 70px;
+
+        /* Caché à droite */
+        right: -100%;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 3rem 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 2rem;
+
+        background: rgba(2, 2, 2, 0.98);
+
+        backdrop-filter: blur(15px);
+
+        border-top: 1px solid rgba(231, 60, 60, 0.15);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+        transition: right 0.4s ease;
+    }
+
+
+    /* Navbar ouverte */
+    .navbar.active {
+        right: 0;
+    }
+
+
+    /* Liens du menu */
+    .navbar a {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 0.8rem 2rem;
+
+        text-align: center;
+
+        font-size: 1.7rem;
+    }
+
+
+    /* Animation de la ligne sous les liens */
+    .navbar a::before {
+        bottom: 0;
+        width: 0;
+    }
+
+
+    /* Ligne rouge au survol */
+    .navbar a:hover::before,
+
+    /* Ligne rouge sur la page actuelle */
+    .navbar a.active::before {
+        width: 80px;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENU PRINCIPAL
+    ----------------------------------------------------- */
+
+    .page-container {
+        padding-top: 70px;
+    }
+
+
+    .detailed-section {
+        min-height: calc(100vh - 70px);
+
+        padding: 6rem 5%;
+    }
+
+
+    /* Titre principal */
+    .page-title {
+        font-size: 3.5rem;
+
+        line-height: 1.3;
+
+        margin-bottom: 4rem;
+    }
+
+
+    /* -----------------------------------------------------
+       TIMELINE
+    ----------------------------------------------------- */
+
+    .experience-detailed-list::before {
+        left: 1rem;
+    }
+
+
+    /* Carte */
+    .exp-detail-card {
+        margin-left: 3.5rem;
+
+        padding: 2.5rem 2rem;
+    }
+
+
+    /* Point de la timeline */
+    .exp-detail-card::before {
+        left: -3.1rem;
+
+        width: 13px;
+        height: 13px;
+    }
+
+
+    /* -----------------------------------------------------
+       EN-TÊTE DES EXPÉRIENCES
+    ----------------------------------------------------- */
+
+    .exp-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 1rem;
+    }
+
+
+    /* Nom du poste */
+    .exp-detail-card h2 {
+        font-size: 2rem;
+
+        line-height: 1.4;
+    }
+
+
+    /* Entreprise */
+    .exp-detail-card h3 {
+        font-size: 1.4rem;
+    }
+
+
+    /* Description */
+    .exp-summary {
+        font-size: 1.3rem;
+
+        line-height: 1.8;
+    }
+
+
+    /* Liste des tâches */
+    .exp-detail-card li {
+        font-size: 1.25rem;
+
+        line-height: 1.7;
+    }
+
+
+    /* Liens */
+    .exp-links {
+        gap: 0.8rem;
+    }
+
+
+    .exp-links a {
+        font-size: 1.2rem;
+
+        padding: 0.7rem 1.2rem;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+    ----------------------------------------------------- */
+
+    .footer {
+        padding: 2.5rem 5%;
+    }
+
+
+    .footer-slogan {
+        font-size: 1.4rem;
+    }
+
+
+    .copyright {
+        font-size: 1.2rem;
+
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================================================
+   PETITS SMARTPHONES
+   Jusqu'à 576px
+========================================================= */
+
+@media (max-width: 576px) {
+
+    html {
+        font-size: 53%;
+    }
+
+
+    header {
+        padding: 1.5rem 4%;
+    }
+
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+
+    #menu-burger {
+        font-size: 3rem;
+    }
+
+
+    .detailed-section {
+        padding: 5rem 4%;
+    }
+
+
+    .page-title {
+        font-size: 3rem;
+
+        text-align: center;
+
+        margin-bottom: 3rem;
+    }
+
+
+    .experience-detailed-list::before {
+        left: 0.7rem;
+    }
+
+
+    .exp-detail-card {
+        margin-left: 2.8rem;
+
+        padding: 2rem 1.5rem;
+    }
+
+
+    .exp-detail-card::before {
+        left: -2.5rem;
+
+        width: 11px;
+        height: 11px;
+    }
+
+
+    .exp-detail-card h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .exp-detail-card h3 {
+        font-size: 1.3rem;
+    }
+
+
+    .exp-summary {
+        font-size: 1.2rem;
+    }
+
+
+    .exp-detail-card li {
+        font-size: 1.15rem;
+    }
+
+
+    .exp-links {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .exp-links a {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS SMARTPHONES
+   Jusqu'à 400px
+========================================================= */
+
+@media (max-width: 400px) {
+
+    html {
+        font-size: 50%;
+    }
+
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+
+    #menu-burger {
+        font-size: 2.8rem;
+    }
+
+
+    .navbar {
+        padding: 2.5rem 0;
+    }
+
+
+    .navbar a {
+        font-size: 1.6rem;
+    }
+
+
+    .detailed-section {
+        padding: 4rem 3%;
+    }
+
+
+    .page-title {
+        font-size: 2.7rem;
+    }
+
+
+    .exp-detail-card {
+        margin-left: 2.5rem;
+
+        padding: 1.8rem 1.3rem;
+    }
+
+
+    .exp-detail-card h2 {
+        font-size: 1.6rem;
+    }
+
+
+    .exp-detail-card h3 {
+        font-size: 1.2rem;
+    }
+
+
+    .exp-summary {
+        font-size: 1.1rem;
+    }
+
+
+    .exp-detail-card li {
+        font-size: 1.05rem;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   Jusqu'à 320px
+========================================================= */
+
+@media (max-width: 320px) {
+
+    html {
+        font-size: 48%;
+    }
+
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+
+    #menu-burger {
+        font-size: 2.6rem;
+    }
+
+
+    .navbar {
+        top: 65px;
+    }
+
+
+    .page-container {
+        padding-top: 65px;
+    }
+
+
+    .detailed-section {
+        padding: 3.5rem 2.5%;
+    }
+
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+
+    .exp-detail-card {
+        margin-left: 2.2rem;
+
+        padding: 1.5rem 1.1rem;
+    }
+
+
+    .exp-detail-card::before {
+        left: -2.1rem;
+
+        width: 10px;
+        height: 10px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+   Réduire les animations si l'utilisateur le demande
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
